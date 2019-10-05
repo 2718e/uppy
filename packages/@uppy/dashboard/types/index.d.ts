@@ -33,6 +33,8 @@ declare module Dashboard {
       myDevice: string,
       dropPasteImport: string,
       dropPaste: string,
+      dropImport: string,
+      dropBrowse: string,
       dropHint: string,
       browse: string,
       uploadComplete: string,
