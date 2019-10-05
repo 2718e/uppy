@@ -114,6 +114,7 @@ module.exports = class Dashboard extends Plugin {
       closeAfterFinish: false,
       disableStatusBar: false,
       disableInformer: false,
+      disablePasteFiles: false,
       disableThumbnailGenerator: false,
       disablePageScrollWhenModalOpen: true,
       animateOpenClose: true,
@@ -492,13 +493,14 @@ module.exports = class Dashboard extends Plugin {
         plugin.handleRootPaste && plugin.handleRootPaste(event)
       }
     })
-
-    // 2. Add all dropped files
-    const files = toArray(event.clipboardData.files)
-    files.forEach((file) => {
-      this.uppy.log('[Dashboard] File pasted')
-      this.addFile(file)
-    })
+    // 2. Add all dropped files (if paste is enabled)
+    if (!this.opts.disablePasteFiles) {
+      const files = toArray(event.clipboardData.files)
+      files.forEach((file) => {
+        this.uppy.log('[Dashboard] File pasted')
+        this.addFile(file)
+      })
+    }
   }
 
   handleInputChange (event) {

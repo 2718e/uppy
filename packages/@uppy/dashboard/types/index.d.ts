@@ -66,6 +66,7 @@ declare module Dashboard {
     closeAfterFinish: boolean;
     closeModalOnClickOutside: boolean;
     disableInformer: boolean;
+    disablePasteFiles: boolean;
     disablePageScrollWhenModalOpen: boolean;
     disableStatusBar: boolean;
     disableThumbnailGenerator: boolean;
