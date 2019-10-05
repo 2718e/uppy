@@ -63,6 +63,13 @@ class AddFiles extends Component {
     )
   }
 
+  chooseDropPasteBrowseTaglineString () {
+    if (this.props.disablePasteFiles) {
+      return this.props.acquirers.length === 0 ? 'dropBrowse' : 'dropImport'
+    }
+    return this.props.acquirers.length === 0 ? 'dropPaste' : 'dropPasteImport'
+  }
+
   renderDropPasteBrowseTagline () {
     const browse =
       <button type="button"
@@ -73,10 +80,7 @@ class AddFiles extends Component {
 
     return (
       <div class="uppy-Dashboard-dropFilesTitle">
-        {this.props.acquirers.length === 0
-          ? this.props.i18nArray('dropPaste', { browse })
-          : this.props.i18nArray('dropPasteImport', { browse })
-        }
+        {this.props.i18nArray(this.chooseDropPasteBrowseTaglineString(), { browse })}
       </div>
     )
   }
