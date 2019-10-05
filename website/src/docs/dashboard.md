@@ -85,6 +85,7 @@ uppy.use(Dashboard, {
   closeAfterFinish: false,
   disableStatusBar: false,
   disableInformer: false,
+  disablePasteFiles: false,
   disableThumbnailGenerator: false,
   disablePageScrollWhenModalOpen: true,
   animateOpenClose: true,
@@ -248,6 +249,12 @@ Dashboard ships with the `StatusBar` plugin that shows upload progress and pause
 
 Dashboard ships with the `Informer` plugin that notifies when the browser is offline, or when it is time to say cheese if `Webcam` is taking a picture. If you want, you can disable the Informer and/or provide your own custom solution.
 
+### `disablePasteFiles: false`
+
+Dashboard ships with the functionality to allow users to paste images from the clipboard in order to upload them. If you want, you can disable this.
+
+Note that this option is currently incompatible with @uppy/locales (as translations for alternate messages haven't been done yet)
+
 ### `disableThumbnailGenerator: false`
 
 Dashboard ships with the `ThumbnailGenerator` plugin that adds small resized image thumbnails to images, for preview purposes only. If you want, you can disable the `ThumbnailGenerator` and/or provide your own custom solution.
@@ -305,6 +312,16 @@ strings: {
   // file selection dialog.
   dropPaste: 'Drop files here, paste or %{browse}',
   // This string is clickable and opens the system file selection dialog.
+  dropImport: 'Drop files here, %{browse} or import from',
+  // Shown in the main dashboard area when no files have been selected, and no provider
+  // plugins are in use, and file pasting is disabled. %{browse} is replaced with a link 
+  // that opens the system file selection dialog.
+  // Used instead of dropPasteImport when file pasting is disabled.
+  // note: at the time of writing, the @uppy/locales packs don't provide translations for this string.
+  dropBrowse: 'Drop files here or %{browse}',
+  // This string is clickable and opens the system file selection dialog.
+  // Used instead of dropPaste when file pasting is disabled.
+  // note: at the time of writing, the @uppy/locales packs don't provide translations for this string.
   browse: 'browse',
   // Used as the hover text and screen reader label for file progress indicators when
   // they have been fully uploaded.

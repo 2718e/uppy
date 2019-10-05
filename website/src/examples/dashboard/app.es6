@@ -44,7 +44,6 @@ function uppyInit () {
     note: opts.restrictions ? 'Images and video only, 2–3 files, up to 1 MB' : '',
     height: 470,
     showProgressDetails: true,
-    disablePasteFiles: true,
     metaFields: [
       { id: 'name', name: 'Name', placeholder: 'file name' },
       { id: 'caption', name: 'Caption', placeholder: 'add description' }
